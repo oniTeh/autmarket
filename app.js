@@ -7,6 +7,7 @@ const passport  = require('passport');
 const authRoutes = require('./routes/auth-routes');
 const stream = require('./routes/stream');
 const dbstreaming = require('./routes/dbStreaming')
+require("dotenv").config()
 //const erro_changer  = require('./config/activityStatus/userTodoActivity').erro_changer
 
 connection(app)
@@ -42,6 +43,6 @@ app.use(passport.session());
 
 userController(app);
 todoController(app);
-const port = 3000;
+const port = process.env.PORT||5000;
 app.listen(port)
 console.log("listening to port",port);
