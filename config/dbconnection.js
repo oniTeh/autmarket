@@ -8,7 +8,7 @@ const dbOption= {
     useNewUrlParser:true,
     useUnifiedTopology:true
 }
-
+console.log(dburl)
 const connection = mongoose.createConnection(dburl,dbOption);
 
 const userSchema = new mongoose.Schema({
