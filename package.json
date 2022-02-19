@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@popperjs/core": "^2.4.4",
+    "all": "^0.0.0",
     "body-parser": "^1.19.0",
     "connect-mongo": "^3.2.0",
     "dotenv": "^16.0.0",
@@ -29,7 +30,8 @@
     "passport-local": "^1.0.0",
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0",
-    "storage": "^0.2.0"
+    "storage": "^0.2.0",
+    "yarn": "^1.22.17"
   },
   "devDependencies": {
     "@types/passport-local": "^1.0.33"
