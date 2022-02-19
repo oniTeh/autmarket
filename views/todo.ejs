@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toDon List</title>
+    <script src="/assets/jquery.js"></script>
+    <script src="/assets/frontEnd.js"></script>
+    <link href="/assets/styles.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+    <div id = " todo-table">
+        <form id = "addForm"> 
+            <input  id = "add" type = "text" name=" item" placeholder="add new item..." required>
+            <button type="submit">Add Item</button>
+        </form>
+    </div>
+    <div id='todoCn'>
+<div id ="im"></div>
+            <% for(let i = 0; i < data.length; i++ ){%>
+               <div class ="todo"><h3>Todo</h3><h4><%=data[i].item %></h4><p>date created:<p><%=data[i].data_created %></p></p>
+                <p>Time: <%=data[i].time %>
+                    <input type="button" class = "delete" value ='<%=i%>'> id </input>
+                <input type="button"class = "edit" value="edit" myid='<%=i%>'/></p>   
+            </div>
+                <%}%>
+    </div>
+    <div class = "editForm">
+        <form id = 'editTodo' action='#'>
+           <p> <h2>EDIT TODO <span id ='etodo'></span> </h2> 
+                 <p><input required id = "editedTodo" type="text" placeholder="Edit todo:"></input> </p>
+                 <button type="submit" id='editbtn' >edit </button></p>
+        </form>
+    </div>
+</body>
+</html>

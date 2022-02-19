@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+<link href="assets/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+<link href="/assets/styles.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<header>
+  <div class="container bg-info p-3 ">
+    <div class="card btn-outline-Basic container pr-5 my-1"> welcome <%=profile_name%></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="mx-2 btn btn-outline-Basic navbar-brand btn" href="/profile">Profile details</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <p class="btn btn-outline-primary mx-2 nav-item nav-link" href="#"> FullName: <%=fullName%> </p>
+          <p class="mx-2 btn btn-outline-primary nav-item nav-link" href="#"> email: <%=email%> </p>
+          <a class="mx-2 btn btn-outline-secondary nav-item nav-link" href="/logout">logout</a>
+          <a class="mx-2 btn btn-outline-secondary nav-item nav-link" href="/myvideos">watch video</a>
+         
+        </div>
+      </div>
+    </nav>
+
+
+    
+    
+  </div>
+  <style>
+      body{
+    background-image:url('images/bg-01.jpg');
+    background-repeat:no-repeat;
+    background-size: 100%;
+}
+
+footer{
+
+	margin-top: 20px;
+	padding-top: 20px;
+}
+.bg__card__navbar{
+	background-color: #000000;
+}
+.bg__card__footer{
+	background-color: #000000 !important;
+}
+#add__new__list{
+    top: -38px;
+    right: 0px;
+}
+  </style>
+</header>
+<!---->
+<main>
+
+  
+</div>
+<div class="container my-5">
+  
+     
+    <div class="card">
+      <div class="card-body text-center " >
+
+        <div id = " todo" class=" flex container card my-1">
+         <span  id = "adStatus" class =" "></span>
+           <span class ="" ></span>
+          <form id = "addTodoForm" class="container my-1 mx-2 p-0 m-0"> 
+            <p class="my-1 btn btn-outline-primary">What do you wanna do ?  <input class="btn btn-outline-primary" type = "text" id="todo" name=" item" placeholder="add new item..." required></p>
+            <p class="my-1 btn btn-outline-primary"> Time of completion  <input class="btn btn-outline-primary" type="time" id="time" required/>
+            <p class="my-1 mx-2 btn btn-outline-primary">Extimated days: <input  type="date" name=" completionDate" id="completeDate" required/> </p>
+            <input type= "submit"  class=" my-1  btn-sm btn-outline-success text-center pl-2 my-1" id="addTodoBtn" value="Add todo" ></input></p>
+            </form>  
+  </div>
+
+  <!-- edit form -->
+  <div class = "container card editForm">
+    <form id = 'editTodoForm' action='#'>
+       <p> <h2 class =" btn  btn-secondary float-left">EDIT TODO <span id ='etodo'></span> </h2> 
+        <span class ="btn-sm btn-success"> </span>
+           <span class ="btn-sm btn-warning" ></span>
+             <p><input class = "  btn " required id = "editedTodo" type="text" placeholder="Edit todo:"></input> </p>
+             <button type="submit" class= " float-left btn btn-sm btn-success text-center pl-2 my-1" id="todoUpdateBtn" >Update Todo</button></p>
+            
+    </form>
+  </div>
+       <!--  end edit form -->
+
+
+        <div class =" card  ">
+        <table class=" table table-hover ">
+            <thead  class="flex-box text-center">
+              <tr>
+                <th scope="col" >ID</th>
+                <th scope="col">Todo</th>
+                <th scope="col">Schedule Dates</th>
+                <th scope="col">Managed Todo </th>
+                <th scope="col"> Status</th>
+              </tr>
+            </thead>
+            <tbody>
+             
+              <tr class="container ">
+                <% for(let i = 0; i < data.length; i++ ){%>
+                <th scope="row"><%=i+1%></th>
+                <td><div class="card   container" item = <%=data[i].item %>> <%=data[i].item %></div></td>
+                <td>
+                  <div class = "row card">
+                    Date: <div class = " container btn btn-secondary  p-2 my-1 small">Created: <br><small><%=data[i].dateCreated %></small></br></div>
+                    <% if(data[i].Status === "Completed"){%>
+                    <div id='statusDiv<%=i%>' class = " <%=data[i].Status %> p-2 my-1 ">Status: Completed<br><small><%=data[i].completion_date %></small></br></div>
+                <%}else if(data[i].status === "Inprogress"){%>
+                  <div id='statusDiv<%=i%>' class = " <%=data[i].Status %> p-2 my-1 ">Status:<br><small><%=data[i].Status %></small></br></div>
+                <%}else{%>
+                  <div id='statusDiv<%=i%>' class = "<%=data[i].Status %> p-2 my-1 ">Status: <br><small><%=data[i].Status %></small></br></div>
+                  <%}%>
+                  </div>
+                </td>
+
+
+                <td>
+                      <div myid= '<%= data[i]._id %>' myindex='<%=i%>'  myitem ='<%=data[i].item %>'  class=" container card">
+
+                         <button class = "  editTodoBtn  btn-sm btn-outline-primary p-2 my-1" >Edit</button>
+                         <button class = " deletebtn  btn-sm btn-outline-danger p-2 my-1" >Delete</button>  
+                         <button class = " detailsBtn  btn-sm btn-outline-info p-2 my-1" >Dtails</button>
+                     </div>
+                  </td>
+
+
+                <td myindex='<%=i%>'>
+                   Todo Status
+                   <select id="statusId"class="status" > 
+                    <optgroup>
+                      <option> Completed</option>
+                      <option> Inprogress</option>
+                      <option> Forfited</option>
+                    </optgroup>
+                  </select>
+
+                  <div id = 'span' class="container card">
+                    <span  id = 'mytid<%=i%>' class=" <%=data[i].Status%>"><%=data[i].Status%></span>
+                </td>
+              </div>  
+              </tr>
+              
+              <%}%>
+           
+            </tbody>
+          </table>
+        
+    </div>
+    
+    
+</div>
+
+    <footer >
+
+	</div>
+</footer>
+<script src="assets/jquery.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/frontEnd.js"></script>
+</body>

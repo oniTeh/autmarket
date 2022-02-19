@@ -1,0 +1,147 @@
+"<script src="assets/jquery.js"></script>
+<link href="assets/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<link href="/assets/styles.css" rel="stylesheet" type="text/css"/>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<body>
+<header>
+  <div class="container bg-info p-5 ">
+    <div class=" card container pr-5 my-1"> welcome <%=profile_name%></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand btn" href="#">Profile details</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <p class="nav-item nav-link" href="#"> FullName: <%=fullName%> </p>
+          <p class="nav-item nav-link" href="#"> email: <%=email%> </p>
+          <a class="nav-item nav-link" href="/logout">logout</a>
+         
+        </div>
+      </div>
+    </nav>
+
+
+    
+    
+  </div>
+  <style>
+      body{
+    background-image:url('images/bg-01.jpg');
+    background-repeat:no-repeat;
+    background-size: 100%;
+}
+
+footer{
+
+	margin-top: 20px;
+	padding-top: 20px;
+}
+.bg__card__navbar{
+	background-color: #000000;
+}
+.bg__card__footer{
+	background-color: #000000 !important;
+}
+#add__new__list{
+    top: -38px;
+    right: 0px;
+}
+  </style>
+</header>
+<!---->
+<main>
+
+  
+</div>
+<div class="container my-5">
+  
+     
+    <div class="card">
+      <div class="card-body text-center " >
+
+        <div id = " todo" class=" flex container card my-1">
+         <span class ="btn-sm btn-success"> <%=success.status%></span>
+           <span class ="btn-sm btn-warning" > <%=success.message%></span>
+          <form id = "addTodoForm" class="container my-1 mx-2 p-0 m-0"> 
+            <p class="my-1 btn btn-primary">do you wanna do ?  <input type = "text" id="todo" name=" item" placeholder="add new item..." required></p>
+            <p class="my-1 btn btn-primary"> Time of completion  <input class="btn" type="time" id="time" required/>
+            <p class="my-1 btn btn-primary">Extimated days: <input  type="date" name=" completionDate" id="completeDate" required/> </p>
+            <button type="submit" class=" my-1 btn btn-sm btn-success text-center pl-2 my- id="addTodoBtn" >Add Todo</button></p>
+            </form>  
+  </div>
+
+  <!-- edit form -->
+  <div class = "container card editForm">
+    <form id = 'editTodoForm' action='#'>
+       <p> <h2 class =" btn  btn-secondary float-left">EDIT TODO <span id ='etodo'></span> </h2> 
+        <span class ="btn-sm btn-success"> </span>
+           <span class ="btn-sm btn-warning" ></span>
+             <p><input class = "  btn " required id = "editedTodo" type="text" placeholder="Edit todo:"></input> </p>
+             <button type="submit" class= " float-left btn btn-sm btn-success text-center pl-2 my-1" id="todoUpdateBtn" >Update Todo</button></p>
+            
+    </form>
+  </div>
+       <!--  end edit form -->
+
+
+        <div class =" card  ">
+        <table class=" table table-hover ">
+            <thead  class="flex-box text-center">
+              <tr>
+                <th scope="col" >ID</th>
+                <th scope="col">Todo</th>
+                <th scope="col">Schedule Dates</th>
+                <th scope="col">Managed Todo </th>
+                <th scope="col"> Status</th>
+              </tr>
+            </thead>
+            <tbody>
+             
+              <tr class="container ">
+                <% for(let i = 0; i < data.length; i++ ){%>
+                <th scope="row"><%=i+1%></th>
+                <td><%=data[i].todo %></td>
+                <td>
+                  <div class = "row card">
+                    Date: <div class = " container btn-warning  p-2 my-1 small">Created: <br><small><%=data[i].dateCreated %></small></br></div>
+                    <div class = " container btn-primary  p-2 my-1 small">completed:<br><small><%=data[i].dateCreated %></small></br></div>
+                  </div>
+    
+                </td>
+                <td> <div class=" container card">
+                         <a  class="editTodoBtn edit btn-sm btn-primary p-2 my-1"><i class="far fa-edit"></i> edit</a>
+                         <a class="btn btn-sm  delet btn-danger p-2 my-1" href="#"><i class="fas fa-trash-alt"></i> delete</a>    
+                      </div>
+                      <div class=" detaild container card"><a class="btn btn-sm btn-info" href="#"><i class="fas fa-info-circle"></i> Details</a> </td>
+                  </td>
+                <td><div class="container card">
+                   <option class = "btn btn-sm btn-warning my-1 " value="inprogress">inprogress</option>
+                   <progress ></progress>
+        
+                   <option class = "btn btn-sm btn-danger my-1" disabled value="Forfited">Forfited</option>
+                   <option class = "btn btn-sm btn-success my-1 " disabled value="Completed">Completed</option> 
+                </td>
+              </div>
+                
+              </tr>
+              
+              <%}%>
+           
+            </tbody>
+          </table>
+        
+    </div>
+    
+    
+</div>
+
+    <footer >
+
+	</div>
+</footer>
+<script src="/assets/frontEnd.js"></script>
+</body>"
