@@ -207,8 +207,7 @@ module.exports = {
     auth._clientId = CLIENT_ID;
     auth._clientSecret = CLIENT_SECRETE;
     auth._redirectUrl = REDIRECT_URI;
-    
-console.log(auth)
+  
     try {
       google.options({
         access_token:req.session.passport.user.api_token,

@@ -53,6 +53,7 @@ app.get("/profile",isAuth, erro_changer,async (req,res,done)=>{
         });
     } catch (error) {
         console.log(error);
+        done(null)
     }
     
     
