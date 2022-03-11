@@ -48,8 +48,8 @@ app.get("/profile",isAuth, erro_changer,async (req,res,done)=>{
          await User.findById({_id:insertedId?insertedId:_id}).then((data)=>{
             
              data = JSON.parse(JSON.stringify(data))
-             res.status(200).json(data)
-            // res.render('my-profile',{user:data})
+            // res.status(200).json(data)
+            res.render('my-profile')//{user:data})
         });
     } catch (error) {
         console.log(error);
