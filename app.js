@@ -23,7 +23,7 @@ const authRoutes = require('./routes/auth-routes');
 const stream = require('./routes/stream');
 const dbstreaming = require('./routes/dbStreaming');
 const contact_route = require('./routes/contact_route/contactRoute')
-const whatsapp_route = require('./routes/whatsapp_route/whatsapp_routes')
+// const whatsapp_route = require('./routes/whatsapp_route/whatsapp_routes')
 //::::::::::require controloers::::::::::::::
 
 var todoController = require('./controllers/todoController');// access files and functions in todocontrolers
@@ -79,7 +79,7 @@ app.use((req,res,next)=>{
 app.use('/auth',authRoutes);
 //google contact api_controller
 app.use('/profile/contact', contact_route)
-app.use('/whatsapp',whatsapp_route)
+// app.use('/whatsapp',whatsapp_route)
 //sreaming route
 app.use('/dbs', dbstreaming);
 app.use('/stream',stream)

@@ -3,7 +3,6 @@ const passport = require("passport");
 const { google } = require("googleapis");
 const people = google.people("v1");
 const qrcode = require('qrcode-terminal');
-const { Client } = require('whatsapp-web.js');
 const  {  makeWALegacySocket ,DisconnectReason} = require( '@adiwajshing/baileys');
 var makeWASocket = require( '@adiwajshing/baileys').default
 
