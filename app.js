@@ -45,12 +45,12 @@ app.use((req,res,next)=>{
     const credentials = {
       CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
       CLIENT_SECRETE: process.env.GOOGLE_CLIENT_SECRET,
-      access_token: req.session.passport.user?.api_token.toString(),
+      access_token: req.session.passport.user?.api_token,
       refresh_token:req.session.passport.user.refreshToken
     };
 
     const auth = new google.auth.OAuth2({
-      keyfile: process.env.GOOGLE_APPLICATION_CREDENTIALS,
+      keyfile: `./${process.env.GOOGLE_APPLICATION_CREDENTIALS}`,
     });
 
     auth.setCredentials(credentials);

@@ -211,7 +211,7 @@ module.exports = {
 console.log(auth)
     try {
       google.options({
-        access_token:req.session.passport.user.api_token.toString(),
+        access_token:req.session.passport.user.api_token,
         refresh_token:req.session.passport.user.refreshToken,
         auth,
       });
