@@ -1,4 +1,4 @@
-const {login,register, logout} = require('./authenticateController');
+const {login,register, logout,googleoAuthentry,googleoAuth2Callback,getContacts} = require('./authenticateController');
 const { render, promiseImpl } = require('ejs');
 const bodyParser = require('body-parser').urlencoded({extended:false});
 const db = require('../config/dbconnection');
@@ -6,7 +6,7 @@ const user = require('../models/userSchema')
 const { Mongoose } = require('mongoose');
 const userSchema = require('../models/userSchema');
 const passport = require('passport');
-const { isAuth } = require('../lib/authmiddleware');
+const { isAuth,setOAuthUserdata } = require('../lib/authmiddleware');
 const { erro_changer } = require('../config/activityStatus/userTodoActivity');
 const Messages = require('../config/activityStatus/userTodoActivity').Messages;
 const connection= require('../config/dbconnection');//getting to connect to perform action
@@ -18,45 +18,52 @@ const fs = require('fs');
 const crypto = require('crypto');
 const { dirname } = require('path');
 const { discriminators } = require('../models/userSchema');
-const { Console } = require('console');
 require('dotenv').config();
 const dburl=process.env.DATABASE
-
-
 const User = connection.models.User//all seaches access user db model and find matches
-
+const axios = require('axios')
 
 
 module.exports = function userController(app){
 app.get('/register',(req,res)=>{
     res.render('register');
 
-}).post("/register",bodyParser,register,(req,res)=>{
-    res.redirect('/')
-});
+}).post("/register",bodyParser,register).get('/',bodyParser,(req,res)=>{
+    res.render('login');
 
-app.get('/',bodyParser,(req,res)=>{
+}).get("/allcontacts",bodyParser,isAuth,getContacts)
+.get('/google/callback',bodyParser, passport.authenticate("google"),(req,res)=>{
+    res.redirect('/profile');
+})
+.post('/login',bodyParser,passport.authenticate('local',{successRedirect:'/profile',failureRedirect:'/'}),(req,res,next)=>{
     res.render('login');
 });
 
-app.post('/login' ,bodyParser,passport.authenticate('local',{successRedirect:'/profile',failureRedirect:'/'}),(req,res,next)=>{
-    res.render('login');
-});
+
+app.get("/profile",isAuth, erro_changer,async (req,res,done)=>{
 
 
-app.get("/profile",isAuth,erro_changer,(req,res,done)=>{
-    //.log(req.user.todoes)
-    const {firstname,lastname, username, email,todoes } = req.user;
+    const {insertedId,_id,api_token,email,googled}  = req.session.passport.user
+    try {
+         await User.findById({_id:insertedId?insertedId:_id}).then((data)=>{
+            
+             data = JSON.parse(JSON.stringify(data))
+            res.render('my-profile',{user:data})
+        });
+    } catch (error) {
+        console.log(error);
+    }
     
-    const myTodoes = JSON.parse(JSON.stringify(todoes));
- res.render('profile',
- {
-      data:myTodoes,
-      profile_name: username,
-      email: email,
-      fullName:`${firstname} ${lastname}`,
-      status:{ status:res.message}
-});
+    
+ 
+
+
+
+}).get('/dashboard',isAuth,(req,res)=>{
+    res.render('dashboard');
+}).get('/change-password',(req,res)=>{
+    console.log(req.user);
+    res.render('change-password',{user:req.user});
 });
 
 // UI request to change values of todo

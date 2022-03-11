@@ -1,0 +1,39 @@
+#editTodoForm{
+  display: none;
+}
+  .Completed{
+    background-color: rgba(19, 156, 38, 0.733);
+    border-radius: 4px;
+    border: none;
+    z-index: 1;
+    text-align: center;
+    padding: 4px;
+  }
+  .Forfited{
+    background-color: orangered;
+    border-radius: 4px;
+    border: none;
+    z-index: 1;
+    text-align: center;
+    padding: 4px;
+  }
+  .Inprogress{
+    border-radius: 4px;
+    border: none;
+    z-index: 1;
+    text-align: center;
+    padding: 4px;
+    background-color: orange;
+  }
+  /* .card-body{
+    background-color:olive;
+      background-image:url('/tumbnail.PNG');
+      background-repeat:no-repeat;
+      background-size: 100%;
+
+  } */
+
+  .spinner-border{
+    display: none;
+    background-color: red;
+  }

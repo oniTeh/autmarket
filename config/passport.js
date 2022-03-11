@@ -42,4 +42,5 @@ passport.serializeUser((user, done)=>{
 passport.deserializeUser((userId, done)=>{
 User.findById(userId).then((user)=>{
     done(null, user);
+
 }).catch(err => done(err))});

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zxx">
+	
+<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		
+        <title>WAMB | | profile</title>
+		
+        <!-- Custom CSS -->
+        <link href="assets/css/styles.css" rel="stylesheet">
+		
+		<!-- Custom Color Option -->
+		<link href="assets/css/colors.css" rel="stylesheet">
+		
+    </head>
+	
+    <body class="blue-skin dashboard">
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <div id="preloader"><div class="preloader"><span></span><span></span></div></div>
+		
+        <!-- ============================================================== -->
+        <!-- Main wrapper - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <div id="main-wrapper">
+		
+            <!-- ============================================================== -->
+            <!-- Top header  -->
+            <!-- ============================================================== -->
+            <!-- Start Navigation -->
+			<div class="header header-light head-shadow">
+				<%-include("app_header")%>		
+			</div>
+			<!-- End Navigation -->
+			<div class="clearfix"></div>
+			<!-- ============================================================== -->
+			<!-- Top header  -->
+			<!-- ============================================================== -->
+			
+			<!-- ============================ Page Title Start================================== -->
+			<div class="page-title">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12">
+							
+							<h2 class="ipt-title">Welcome!</h2>
+							<span class="ipn-subtitle">Welcome To Your Account</span>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ============================ Page Title End ================================== -->
+			
+			<!-- ============================ User Dashboard ================================== -->
+			<section class="bg-light">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12 col-md-12">
+							<div class="filter_search_opt">
+								<a href="javascript:void(0);" onclick="openFilterSearch()">Dashboard Navigation<i class="ml-2 ti-menu"></i></a>
+							</div>
+						</div>
+					</div>
+							
+					<div class="row">
+						<%-include("Sidebar")%>	
+					
+				
+						
+						<div class="col-lg-9 col-md-12">
+							<div class="dashboard-wraper">
+							
+								<!-- Basic Information -->
+								<div class="form-submit">	
+									<h4>My Account</h4>
+									<div class="submit-section">
+										<div class="row">
+										
+											<div class="form-group col-md-6">
+												<label>Your Name</label>
+												<input type="text" class="form-control" value='<%=user.username%>'>
+											</div>
+											
+											<div class="form-group col-md-6">
+												<label>Email</label>
+												<input type="email" class="form-control" value='<%=user.email %>'>
+											</div>
+											
+											<div class="form-group col-md-6">
+												<label>Your Title</label>
+												<input type="text" class="form-control" value="Web Designer">
+											</div>
+											
+											<div class="form-group col-md-6">
+												<label>Phone</label>
+												<input type="text" class="form-control" value=<%=user.phonenumber %>>
+											</div>
+											
+											<div class="form-group col-md-6">
+												<label>Address</label>
+												<input type="text" class="form-control" value="522, Arizona, Canada">
+											</div>
+											
+											<div class="form-group col-md-6">
+												<label>City</label>
+												<input type="text" class="form-control" value="Montquebe">
+											</div>
+											
+											<div class="form-group col-md-6">
+												<label>State</label>
+												<input type="text" class="form-control" value="Canada">
+											</div>
+											
+											<div class="form-group col-md-6">
+												<label>Zip</label>
+												<input type="text" class="form-control" value="160052">
+											</div>
+											
+											<div class="form-group col-md-12">
+												<label>About</label>
+												<textarea class="form-control">Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper</textarea>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+								
+								<div class="form-submit">	
+									<h4>Social Accounts</h4>
+									<div class="submit-section">
+										<div class="row">
+										
+											<div class="form-group col-md-6">
+												<label>Facebook</label>
+												<input type="text" class="form-control" value="https://facebook.com/">
+											</div>
+											
+											<div class="form-group col-md-6">
+												<label>Twitter</label>
+												<input type="email" class="form-control" value="https://twitter.com/">
+											</div>
+											
+											<div class="form-group col-md-6">
+												<label>Google Plus</label>
+												<input type="text" class="form-control" value="https://googleplus.com/">
+											</div>
+											
+											<div class="form-group col-md-6">
+												<label>LinkedIn</label>
+												<input type="text" class="form-control" value="https://linkedin.com/">
+											</div>
+											
+											<div class="form-group col-lg-12 col-md-12">
+												<button class="btn btn-theme-light-2 rounded" type="submit">Save Changes</button>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</section>
+			<!-- ============================ User Dashboard End ================================== -->
+			
+			<!-- ============================ Call To Action ================================== -->
+			<section class="theme-bg call-to-act-wrap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							
+							<div class="call-to-act">
+								<div class="call-to-act-head">
+									<h3>Want to Become a WAMB Agent?</h3>
+									<span>We'll help you Automate your business.</span>
+								</div>
+								<a href="/contact" class="btn btn-call-to-act">Contact us Today</a>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- ============================ Call To Action End ================================== -->
+			
+			<!-- ============================ Footer Start ================================== -->
+			<%-include("app_footer")%>	
+			<!-- ============================ Footer End ================================== -->
+			
+			<!-- Log In Modal -->
+			<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="registermodal" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
+					<div class="modal-content" id="registermodal">
+						<span class="mod-close" data-bs-dismiss="modal" aria-hidden="true"><i class="ti-close"></i></span>
+						<div class="modal-body">
+							<h4 class="modal-header-title">Log In</h4>
+							<div class="login-form">
+								<form>
+								
+									<div class="form-group">
+										<label>User Name</label>
+										<div class="input-with-icon">
+											<input type="text" class="form-control" placeholder="Username">
+											<i class="ti-user"></i>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label>Password</label>
+										<div class="input-with-icon">
+											<input type="password" class="form-control" placeholder="*******">
+											<i class="ti-unlock"></i>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">Login</button>
+									</div>
+								
+								</form>
+							</div>
+							<div class="modal-divider"><span>Or login via</span></div>
+							<div class="social-login mb-3">
+								<ul>
+									<li><a href="#" class="btn connect-fb"><i class="ti-facebook"></i>Facebook</a></li>
+									<li><a href="#" class="btn connect-google"><i class="ti-google"></i>Google+</a></li>
+								</ul>
+							</div>
+							<div class="text-center">
+								<p class="mt-5"><a href="#" class="link">Forgot password?</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Modal -->
+			
+			<!-- Sign Up Modal -->
+			<div class="modal fade signup" id="signup" tabindex="-1" role="dialog" aria-labelledby="sign-up" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
+					<div class="modal-content" id="sign-up">
+						<span class="mod-close" data-bs-dismiss="modal" aria-hidden="true"><i class="ti-close"></i></span>
+						<div class="modal-body">
+							<h4 class="modal-header-title">Sign Up</h4>
+							<div class="login-form">
+								<form>
+									
+									<div class="row">
+										
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group">
+												<div class="input-with-icon">
+													<input type="text" class="form-control" placeholder="Full Name">
+													<i class="ti-user"></i>
+												</div>
+											</div>
+										</div>
+										
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group">
+												<div class="input-with-icon">
+													<input type="email" class="form-control" placeholder="Email">
+													<i class="ti-email"></i>
+												</div>
+											</div>
+										</div>
+										
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group">
+												<div class="input-with-icon">
+													<input type="text" class="form-control" placeholder="Username">
+													<i class="ti-user"></i>
+												</div>
+											</div>
+										</div>
+										
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group">
+												<div class="input-with-icon">
+													<input type="password" class="form-control" placeholder="*******">
+													<i class="ti-unlock"></i>
+												</div>
+											</div>
+										</div>
+										
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group">
+												<div class="input-with-icon">
+													<input type="password" class="form-control" placeholder="123 546 5847">
+													<i class="lni-phone-handset"></i>
+												</div>
+											</div>
+										</div>
+										
+										<div class="col-lg-6 col-md-6">
+											<div class="form-group">
+												<div class="input-with-icon">
+													<select class="form-control">
+														<option>As a Customer</option>
+														<option>As a Agent</option>
+														<option>As a Agency</option>
+													</select>
+													<i class="ti-briefcase"></i>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									
+									<div class="form-group">
+										<button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">Sign Up</button>
+									</div>
+								
+								</form>
+							</div>
+							<div class="modal-divider"><span>Or login via</span></div>
+							<div class="social-login mb-3">
+								<ul>
+									<li><a href="#" class="btn connect-fb"><i class="ti-facebook"></i>Facebook</a></li>
+									<li><a href="#" class="btn connect-google"><i class="ti-google"></i>Google+</a></li>
+								</ul>
+							</div>
+							<div class="text-center">
+								<p class="mt-5"><i class="ti-user mr-1"></i>Already Have An Account? <a href="#" class="link">Go For LogIn</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End Modal -->
+			
+			<a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
+			
+
+		</div>
+		<!-- ============================================================== -->
+		<!-- End Wrapper -->
+		<!-- ============================================================== -->
+
+
+		<!-- ============================================================== -->
+		<!-- All Jquery -->
+		<!-- ============================================================== -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/popper.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/rangeslider.js"></script>
+		<script src="assets/js/select2.min.js"></script>
+		<script src="assets/js/jquery.magnific-popup.min.js"></script>
+		<script src="assets/js/slick.js"></script>
+		<script src="assets/js/slider-bg.js"></script>
+		<script src="assets/js/lightbox.js"></script> 
+		<script src="assets/js/imagesloaded.js"></script>
+		 
+		<script src="assets/js/custom.js"></script>
+		<!-- ============================================================== -->
+		<!-- This page plugins -->
+		<!-- ============================================================== -->
+		<script>
+			function openFilterSearch() {
+				document.getElementById("filter_search").style.display = "block";
+			}
+			function closeFilterSearch() {
+				document.getElementById("filter_search").style.display = "none";
+			}
+		</script>
+
+	</body>
+
+</html>

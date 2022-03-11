@@ -3,8 +3,8 @@ const nodemailer = require("nodemailer");
 const dotenv = require("dotenv").config();
 // initialising credentials
 
-const CLIENT_ID = process.env.CLIENT_ID;
-const CLIENT_SECRETE = process.env.CLIENT_SECRETE;
+const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const CLIENT_SECRETE = process.env.GOOGLE_CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
 const REFRESH_TOKEN = process.env.REFRESH_TOKEN
 
@@ -48,7 +48,7 @@ module.exports = async function sendMail(mailProps) {
 
 
         const mailOption = {
-            from: "validProfitconsult < validProfitConsult@gmail.com >",
+            from: "wamb>",
             to: address,
             subject: subject,
             text: message,

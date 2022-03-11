@@ -1,0 +1,35 @@
+<div class="col-lg-3 col-md-12">
+							
+    <div class="simple-sidebar sm-sidebar" id="filter_search">
+        
+        <div class="search-sidebar_header">
+            <h4 class="ssh_heading">Close Filter</h4>
+            <button onclick="closeFilterSearch()" class="w3-bar-item w3-button w3-large"><i class="ti-close"></i></button>
+        </div>
+        
+        <div class="sidebar-widgets">
+            <div class="dashboard-navbar">
+                
+                <div class="d-user-avater">
+                    <img src=<%= user.picture   %> class="img-fluid avater" alt="">
+                    <h4><%= user.name   %></h4>
+                    <span></span>
+                </div>
+                
+                <div class="d-navigation">
+                    <ul>
+                        <li><a href="/dashboard"><i class="ti-dashboard"></i>Dashboard</a></li>
+                        <li class="active"><a href="/profile"><i class="ti-user"></i>My Profile</a></li>
+                        <li><a href="/sheet"><i class="ti-bookmark"></i>bookmark-list</a></li>
+                        <li><a href="/profile/contact"><i class="ti-layers"></i>My Contact</a></li>
+                        <li><a href="submit-property-dashboard"><i class="ti-pencil-alt"></i>Submit New Property</a></li>
+                        <li><a href="/change-password"><i class="ti-unlock"></i>Change Password</a></li>
+                        <li><a href="/logout"><i class="ti-power-off"></i>Log Out</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</div>

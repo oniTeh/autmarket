@@ -9,15 +9,22 @@ const userSchema = new mongoose.Schema({
   email:  String ,
   password: String,
   pkey: String,
+  name:String,
+  refreshToken:String,
   is_active: { type: Boolean, default: 0 },
   googleId: { type: String, default:"googleid" },
   api_token:{type:String,default:"api_token"}, 
+  access_token:{type:String,default:""},
+  id_token:{type:String,default:""},
+  scope:{type:String,default:""},
+  picture:String,
+  code:{type:String,default:""},
+  gtoken_expiry_date:{type:Number},
   todoes: [
     Usertodo.schema
 ],
 videos:[
   UserVideos.schema
-],
-videoCollections:{type:Array, default:{url:"abc",poster:"abc"}}
+]
 })
 module.exports = mongoose.model('userSchema', userSchema);
