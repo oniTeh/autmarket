@@ -45,7 +45,7 @@ app.use((req,res,next)=>{
     const credentials = {
       CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
       CLIENT_SECRETE: process.env.GOOGLE_CLIENT_SECRET,
-      access_token: req.session.passport.user.api_token.toString(),
+      access_token: req.session.passport.user?.api_token.toString(),
       refresh_token:req.session.passport.user.refreshToken
     };
 
@@ -70,7 +70,7 @@ app.use((req,res,next)=>{
     }
     next(null);
   }else{
-    next()
+    next(null);
   }
  
   

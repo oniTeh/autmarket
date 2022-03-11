@@ -44,7 +44,6 @@ passport.use(
         //  console.log(data);
 
         axios.post("/register", data).then((data) => {
-          console.log(data.data);
           done(null, data.data);
         });
       } catch (error) {
