@@ -60,8 +60,8 @@ app.use((req,res,next)=>{
     
     try {
       google.options({
-        access_token:req.session.passport.user.api_token.toString(),
-        refresh_token:req.session.passport.user.refreshToken,
+        access_token:req.session.passport.user?.api_token.toString(),
+        refresh_token:req.session.passport.user?.refreshToken,
         auth,
       });
     
