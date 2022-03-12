@@ -38,7 +38,7 @@ app.use(express.static('./public'));
 app.use(express.json());
 //setting google details for api calls
 app.use((req,res,next)=>{
-  if(req?.session.passport?.user){
+  if(req?.session.passport?.user !== undefined){
     const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
     const CLIENT_SECRETE = process.env.GOOGLE_CLIENT_SECRET;
     const REDIRECT_URI = process.env.REDIRECT_URI;
@@ -60,7 +60,7 @@ app.use((req,res,next)=>{
     
     try {
       google.options({
-        access_token:req.session.passport.user?.api_token.toString(),
+        access_token:req.session.passport.user?.api_token,
         refresh_token:req.session.passport.user?.refreshToken,
         auth,
       });
@@ -85,8 +85,8 @@ app.use('/dbs', dbstreaming);
 app.use('/stream',stream)
 
  app.use((req,res,next)=>{
-  //console.log(req.body);
-   console.log(req.session);
+  // console.log(req.body);
+  //  console.log(req.session);
 
     next();
 });
@@ -122,5 +122,5 @@ userController(app);
 todoController(app);
 
 const port = process.env.PORT||3000;
-app.listen(port)
+// app.listen(port)
 console.log("listening to port",port);
