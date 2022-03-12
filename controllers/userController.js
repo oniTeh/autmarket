@@ -43,14 +43,13 @@ app.get('/register',(req,res)=>{
 app.get("/profile",isAuth, erro_changer,async (req,res,done)=>{
 
 
-    const {insertedId,_id,api_token,email,googled}  = req.session?.passport.user
+    const {insertedId,_id,api_token,email,googled,phonenumber,name,picture}  = req.session?.passport.user
     try {
-         await User.findById({_id:insertedId?insertedId:_id}).then((data)=>{
-            
-             data = JSON.parse(JSON.stringify(data))
-            // res.status(200).json(data)
-            res.render('my-profile')//{user:data})
-        });
+            if(email){
+                res.render('my-profile',{_id,api_token,email,googled,phonenumber,name,picture})//)
+            }else{
+                return res.redirect('/')
+            }
     } catch (error) {
         console.log(error);
         done(null)
