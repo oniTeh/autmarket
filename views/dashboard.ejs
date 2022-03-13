@@ -30,7 +30,7 @@
             <!-- Top header  -->
             <!-- ============================================================== -->
             <!-- Start Navigation -->
-			<div class="header header-light head-shadow">
+			<!-- <div class="header header-light head-shadow">
 				<div class="container">
 					<nav id="navigation" class="navigation navigation-landscape">
 						<div class="nav-header">
@@ -144,7 +144,8 @@
 						</div>
 					</nav>
 				</div>
-			</div>
+			</div> -->
+			<!-- <%-include('app_header')%> -->
 			<!-- End Navigation -->
 			<div class="clearfix"></div>
 			<!-- ============================================================== -->
@@ -152,18 +153,7 @@
 			<!-- ============================================================== -->
 			
 			<!-- ============================ Page Title Start================================== -->
-			<div class="page-title">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12 col-md-12">
-							
-							<h2 class="ipt-title">Welcome!</h2>
-							<span class="ipn-subtitle">Welcome To Your Account</span>
-							
-						</div>
-					</div>
-				</div>
-			</div>
+			
 			<!-- ============================ Page Title End ================================== -->
 			
 			<!-- ============================ User Dashboard ================================== -->
@@ -179,42 +169,8 @@
 					</div>
 								
 					<div class="row">
-						
-						<div class="col-lg-3 col-md-12">
-							
-							<div class="simple-sidebar sm-sidebar" id="filter_search">
-								
-								<div class="search-sidebar_header">
-									<h4 class="ssh_heading">Close Filter</h4>
-									<button onclick="closeFilterSearch()" class="w3-bar-item w3-button w3-large"><i class="ti-close"></i></button>
-								</div>
-								
-								<div class="sidebar-widgets">
-									<div class="dashboard-navbar">
-										
-										<div class="d-user-avater">
-											<img src="assets/img/user-3.jpg" class="img-fluid avater" alt="">
-											<h4>Adam Harshvardhan</h4>
-											<span>Canada USA</span>
-										</div>
-										
-										<div class="d-navigation">
-											<ul>
-												<li class="active"><a href="dashboard.html"><i class="ti-dashboard"></i>Dashboard</a></li>
-												<li><a href="my-profile.html"><i class="ti-user"></i>My Profile</a></li>
-												<li><a href="bookmark-list.html"><i class="ti-bookmark"></i>Bookmarked Listings</a></li>
-												<li><a href="my-property.html"><i class="ti-layers"></i>My Properties</a></li>
-												<li><a href="submit-property-dashboard.html"><i class="ti-pencil-alt"></i>Submit New Property</a></li>
-												<li><a href="change-password.html"><i class="ti-unlock"></i>Change Password</a></li>
-												<li><a href="#"><i class="ti-power-off"></i>Log Out</a></li>
-											</ul>
-										</div>
-										
-									</div>
-								</div>
-								
-							</div>
-						</div>
+						<%-include('sidebar')%>
+					
 						
 						<div class="col-lg-9 col-md-12">
 							
@@ -366,141 +322,19 @@
 					</div>
 				</div>
 			</section>
+			
 			<!-- ============================ User Dashboard End ================================== -->
 			
 			<!-- ============================ Call To Action ================================== -->
-			<section class="theme-bg call-to-act-wrap">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12">
-							
-							<div class="call-to-act">
-								<div class="call-to-act-head">
-									<h3>Want to Become a Real Estate Agent?</h3>
-									<span>We'll help you to grow your career and growth.</span>
-								</div>
-								<a href="#" class="btn btn-call-to-act">SignUp Today</a>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-			</section>
+			<%- include('app_call_action')%>
 			<!-- ============================ Call To Action End ================================== -->
 			
 			<!-- ============================ Footer Start ================================== -->
-			<footer class="dark-footer skin-dark-footer">
-				<div>
-					<div class="container">
-						<div class="row">
-							
-							<div class="col-lg-3 col-md-3">
-								<div class="footer-widget">
-									<img src="assets/img/logo-light.png" class="img-footer" alt="" />
-									<div class="footer-add">
-										<p>Collins Street West, Victoria 8007, Australia.</p>
-										<p>+1 246-345-0695</p>
-										<p>info@example.com</p>
-									</div>
-									
-								</div>
-							</div>		
-							<div class="col-lg-2 col-md-2">
-								<div class="footer-widget">
-									<h4 class="widget-title">Navigations</h4>
-									<ul class="footer-menu">
-										<li><a href="about-us.html">About Us</a></li>
-										<li><a href="faq.html">FAQs Page</a></li>
-										<li><a href="checkout.html">Checkout</a></li>
-										<li><a href="contact.html">Contact</a></li>
-										<li><a href="blog.html">Blog</a></li>
-									</ul>
-								</div>
-							</div>
-									
-							<div class="col-lg-2 col-md-2">
-								<div class="footer-widget">
-									<h4 class="widget-title">The Highlights</h4>
-									<ul class="footer-menu">
-										<li><a href="#">Apartment</a></li>
-										<li><a href="#">My Houses</a></li>
-										<li><a href="#">Restaurant</a></li>
-										<li><a href="#">Nightlife</a></li>
-										<li><a href="#">Villas</a></li>
-									</ul>
-								</div>
-							</div>
-							
-							<div class="col-lg-2 col-md-2">
-								<div class="footer-widget">
-									<h4 class="widget-title">My Account</h4>
-									<ul class="footer-menu">
-										<li><a href="#">My Profile</a></li>
-										<li><a href="#">My account</a></li>
-										<li><a href="#">My Property</a></li>
-										<li><a href="#">Favorites</a></li>
-										<li><a href="#">Cart</a></li>
-									</ul>
-								</div>
-							</div>
-							
-							<div class="col-lg-3 col-md-3">
-								<div class="footer-widget">
-									<h4 class="widget-title">Download Apps</h4>
-									<a href="#" class="other-store-link">
-										<div class="other-store-app">
-											<div class="os-app-icon">
-												<i class="lni-playstore theme-cl"></i>
-											</div>
-											<div class="os-app-caps">
-												Google Play
-												<span>Get It Now</span>
-											</div>
-										</div>
-									</a>
-									<a href="#" class="other-store-link">
-										<div class="other-store-app">
-											<div class="os-app-icon">
-												<i class="lni-apple theme-cl"></i>
-											</div>
-											<div class="os-app-caps">
-												App Store
-												<span>Now it Available</span>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-				
-				<div class="footer-bottom">
-					<div class="container">
-						<div class="row align-items-center">
-							
-							<div class="col-lg-6 col-md-6">
-								<p class="mb-0">© 2021 Resido. Designd By <a href="https://themezhub.com/">Themez Hub</a> All Rights Reserved</p>
-							</div>
-							
-							<div class="col-lg-6 col-md-6 text-right">
-								<ul class="footer-bottom-social">
-									<li><a href="#"><i class="ti-facebook"></i></a></li>
-									<li><a href="#"><i class="ti-twitter"></i></a></li>
-									<li><a href="#"><i class="ti-instagram"></i></a></li>
-									<li><a href="#"><i class="ti-linkedin"></i></a></li>
-								</ul>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-			</footer>
+			
 			<!-- ============================ Footer End ================================== -->
 			
 			<!-- Log In Modal -->
-			<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="registermodal" aria-hidden="true">
+			<!-- <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="registermodal" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
 					<div class="modal-content" id="registermodal">
 						<span class="mod-close" data-bs-dismiss="modal" aria-hidden="true"><i class="ti-close"></i></span>
@@ -544,11 +378,11 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- End Modal -->
 			
 			<!-- Sign Up Modal -->
-			<div class="modal fade signup" id="signup" tabindex="-1" role="dialog" aria-labelledby="sign-up" aria-hidden="true">
+			<!-- <div class="modal fade signup" id="signup" tabindex="-1" role="dialog" aria-labelledby="sign-up" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
 					<div class="modal-content" id="sign-up">
 						<span class="mod-close" data-bs-dismiss="modal" aria-hidden="true"><i class="ti-close"></i></span>
@@ -638,7 +472,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- End Modal -->
 			
 			<a id="back2Top" class="top-scroll" title="Back to top" href="#"><i class="ti-arrow-up"></i></a>
@@ -680,5 +514,4 @@
 
 	</body>
 
-<!-- Mirrored from themezhub.net/resido-live-02/resido/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 29 Jul 2021 19:19:40 GMT -->
 </html>

@@ -6,7 +6,7 @@ const user = require('../models/userSchema')
 const { Mongoose } = require('mongoose');
 const userSchema = require('../models/userSchema');
 const passport = require('passport');
-const { isAuth,setOAuthUserdata } = require('../lib/authmiddleware');
+const { isAuth,setOAuthUserdata, isGoogleSignedIn } = require('../lib/authmiddleware');
 const { erro_changer } = require('../config/activityStatus/userTodoActivity');
 const Messages = require('../config/activityStatus/userTodoActivity').Messages;
 const connection= require('../config/dbconnection');//getting to connect to perform action
@@ -60,11 +60,13 @@ app.get("/profile",isAuth, erro_changer,async (req,res,done)=>{
 
 
 
-}).get('/dashboard',isAuth,(req,res)=>{
-    res.render('dashboard');
+}).get('/dashboard',isAuth,isGoogleSignedIn,(req,res)=>{
+    const {insertedId,_id,api_token,email,googled,phonenumber,name,picture}  = req.session?.passport.user
+    res.render('dashboard',{insertedId,_id,api_token,email,googled,phonenumber,name,picture});
 }).get('/change-password',(req,res)=>{
+    const {insertedId,_id,api_token,email,googled,phonenumber,name,picture}  = req.session?.passport.user
     console.log(req.user);
-    res.render('change-password',{user:req.user});
+    res.render('change-password',{insertedId,_id,api_token,email,googled,phonenumber,name,picture});
 });
 
 // UI request to change values of todo
