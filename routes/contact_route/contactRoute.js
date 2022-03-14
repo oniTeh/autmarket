@@ -1,7 +1,7 @@
 // contain all routh
 const passport = require("passport");
 const{ isAuth,isGoogleSignedIn }= require('../../lib/authmiddleware')
-const {getContacts,getLabel,contactInLabel,getPerson,create_group} = require('../../controllers/contactController')
+const {create_contact,getContacts,getLabel,contactInLabel,getPerson,create_group} = require('../../controllers/contactController')
 
 
 const router = require('express').Router();
@@ -15,5 +15,8 @@ router.get('/label_contact',isGoogleSignedIn,isAuth,contactInLabel);
 router.get('/person',isGoogleSignedIn,isAuth,getPerson);
 // :::::::::::::::::::create:::::::::::::::::::::::::://
 router.get('/create_group',isGoogleSignedIn,isAuth,create_group);
+//create contact 
+
+router.get('/create_contact',isGoogleSignedIn,isAuth,create_contact);
 
 module.exports= router;

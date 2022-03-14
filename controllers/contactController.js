@@ -19,6 +19,36 @@ const getGroups = () => {
     return error;
   }
 };
+const create_contact = async () => {
+  //check if grpupname exit if not create the group name
+
+ const createdContact =  await people.people
+    .createContact({
+      requestBody: {
+        phoneNumbers: [
+          {
+            value: "070485858",
+          },
+          {
+            canonicalForm: "+23470485858",
+          },
+        ],
+        names: [
+          {
+            givenName: "joshua",
+            familyName: "dogubo",
+          },
+        ],
+        emailAddresses: [
+          {
+            value: `jayboy1990@gmail.com`,
+          },
+        ],
+      },
+    })
+    .then((data) =>(JSON.parse(JSON.stringify(data.data))));
+    return createdContact;
+};
 
 //all google contact list
 const getAllGoogleContacts = () => {
@@ -56,9 +86,9 @@ const getContactsInGroup = (resourceName) => {
 };
 
 //get a  contact usng its googleid
-const getPersonContactDetails = (personId) => {
+const getPersonContactDetails = async (personId) => {
   try {
-    return people.people
+    return await people.people
       .get({
         resourceName: personId,
         personFields: "names,emailAddresses,phoneNumbers",
@@ -73,6 +103,16 @@ const getPersonContactDetails = (personId) => {
 };
 
 module.exports = {
+  //create google contact api
+  create_contact: (req, res) => {
+    try {
+      create_contact().then(data=>console.log(JSON.stringify(data)));
+    } catch (error) {
+      console.log(error);
+    }
+    res.status(200).json({ code: 200, data: "hello world" });
+  },
+
   getContacts: async (req, res, done) => {
     try {
       const mycontacts = getAllGoogleContacts().then((data) => data);
@@ -80,10 +120,6 @@ module.exports = {
     } catch (error) {
       done(error);
     }
-  },
-
-  createContacts: (req, res, done) => {
-    res.status(200).send("CREATE");
   },
 
   getLabel: async (req, res) => {
@@ -105,7 +141,9 @@ module.exports = {
         JSON.parse(JSON.stringify(data))
       );
       contactsInGroup.then((data) => res.status(200).json(data));
-    } catch (error) {}
+    } catch (error) {
+      return res.status(400).json({ error });
+    }
   },
 
   getPerson: async (req, res) => {
@@ -122,8 +160,8 @@ module.exports = {
   },
 
   create_group: (req, res) => {
-    const {groupName} = JSON.parse(JSON.stringify(req.query));
-    console.log(groupName)
+    const { groupName } = JSON.parse(JSON.stringify(req.query));
+
     try {
       //create group or label
       let userGoogleContactsGroups = getGroups().then((data) =>
@@ -138,20 +176,19 @@ module.exports = {
         if (data.includes(`${groupName}`)) {
           return res.status(301).json({ code: 301, mesage: "group exist" });
         } else {
-          try {     
+          try {
             const resp = await people.contactGroups.create({
               requestBody: {
-                "contactGroup": {
-                  "name": `${groupName}`
-                }
-              }
-            })
-              res.status(200).json(resp.data)
+                contactGroup: {
+                  name: `${groupName}`,
+                },
+              },
+            });
+            res.status(200).json(resp.data);
           } catch (error) {
-            res.status(400).json({code:400,message:error.messagee})
-            console.log(error)
+            res.status(400).json({ code: 400, message: error.messagee });
+            console.log(error);
           }
-        
         }
       });
     } catch (error) {
